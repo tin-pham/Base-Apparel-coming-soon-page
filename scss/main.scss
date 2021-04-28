@@ -1,0 +1,170 @@
+@import './config', './default';
+
+body,
+html {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  @include desktop {
+    display: flex;
+    section {
+      flex: 2 1 auto;
+    }
+    #desktop {
+      flex-basis: 30%;
+      height: 100vh;
+      img {
+        object-fit: none;
+      }
+    }
+  }
+}
+
+section {
+  min-width: 375px;
+  @include desktop {
+    background: url(../images/bg-pattern-desktop.svg) no-repeat center;
+    background-size: cover;
+  }
+}
+
+#logo {
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+}
+
+#hero {
+  width: 100%;
+  img {
+    width: 100%;
+  }
+}
+
+#main {
+  text-align: center;
+  width: 80%;
+  padding: 3rem 0;
+  margin: 0 auto;
+  max-width: 500px;
+  header {
+    font-size: 2rem;
+    width: 400px;
+    margin: 0 auto;
+    overflow-wrap: break-word;
+    h1 {
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.75rem;
+      color: $dark-grayish-red;
+      span {
+        color: $desaturated-red;
+        font-weight: 300;
+        opacity: 0.4;
+      }
+    }
+  }
+
+  p {
+    color: $dark-grayish-red;
+    opacity: 0.4;
+    line-height: 1.75rem;
+    margin: 2rem 0;
+    font-weight: 400;
+  }
+
+  #form {
+    width: 100%;
+    position: relative;
+    height: 60px;
+    margin-bottom: 1rem;
+    input {
+      height: 100%;
+      width: 100%;
+      padding: 2rem;
+      border: 1px solid $dark-grayish-red;
+      color: $dark-grayish-red;
+      border-radius: 50px;
+      outline: none;
+      font-size: 1rem;
+      opacity: 0.5;
+    }
+
+    #arrow {
+      width: 20%;
+      height: calc(100% + 0.5rem);
+      background: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+      position: absolute;
+      display: grid;
+      place-items: center;
+      right: 0;
+      top: 0px;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0px 10px 20px 0 rgba(194, 140, 140, 0.4);
+      transition: $transition-delay;
+
+      &::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 5px 15px 0 rgba(194, 140, 140, 0.6);
+        top: 0;
+        left: 0;
+        border-radius: inherit;
+        opacity: 0;
+        transition: $transition-delay;
+      }
+
+      &:active {
+        background: linear-gradient(135deg, hsl(0, 74%, 94%), hsl(0, 74%, 84%));
+      }
+
+      &:hover {
+        transform: scale(1.1);
+        &::before {
+          opacity: 1;
+        }
+      }
+
+      // #message.invalid {
+      //   color: $soft-red;
+      // }
+    }
+
+    #error {
+      display: none;
+    }
+    // Active Transition
+  }
+
+  @include desktop {
+    text-align: left;
+    header {
+      margin: 0;
+      font-size: 3rem;
+    }
+    p {
+      text-align: left;
+      font-size: 1.1rem;
+    }
+  }
+}
+
+#form.invalid {
+  input {
+    outline: $soft-red;
+    position: relative;
+  }
+
+  #error {
+    display: inline-block !important;
+    position: absolute;
+    right: 23%;
+    top: 29%;
+  }
+}

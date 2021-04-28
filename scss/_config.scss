@@ -1,0 +1,16 @@
+// Primary Color
+$desaturated-red: hsl(0, 81%, 61%);
+$soft-red: hsl(0, 93%, 68%);
+
+// Neutral
+$dark-grayish-red: hsl(0, 6%, 24%);
+
+// Gradient
+$ff: 'Josefin Sans', sans-serif;
+$transition-delay: all 200ms ease-in-out;
+
+@mixin desktop {
+  @media (min-width: 1000px) {
+    @content;
+  }
+}

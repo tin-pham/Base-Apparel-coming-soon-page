@@ -1,0 +1,29 @@
+@import './config';
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  font-family: $ff;
+}
+
+#desktop {
+  display: none;
+}
+
+@include desktop {
+  #mobile {
+    display: none;
+  }
+
+  #desktop {
+    display: inline-block;
+  }
+}
+
+button {
+  border: none;
+}
