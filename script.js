@@ -19,7 +19,6 @@ form.addEventListener('submit', (e) => {
     form.classList.add('valid');
     message.innerHTML = 'Submit successful';
     message.style.color = 'black';
-
     input.value = '';
     console.log('2');
   }
